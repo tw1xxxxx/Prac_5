@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище dataBaseP8ModelContainer" CdmEntityContainer="dataBaseP8Entities">
+    <EntitySetMapping Name="BuyList">
+      <EntityTypeMapping TypeName="dataBaseP8Model.BuyList">
+        <MappingFragment StoreEntitySet="BuyList">
+          <ScalarProperty Name="PurchaseDetailID" ColumnName="PurchaseDetailID" />
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Количество" ColumnName="Количество" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Город" ColumnName="Город" />
+          <ScalarProperty Name="ПочтовыйИндекс" ColumnName="ПочтовыйИндекс" />
+          <ScalarProperty Name="НомерТелефона" ColumnName="НомерТелефона" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Custumers">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Custumers">
+        <MappingFragment StoreEntitySet="Custumers">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+          <ScalarProperty Name="Зарплата" ColumnName="Зарплата" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_Manager">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Event_Manager">
+        <MappingFragment StoreEntitySet="Event_Manager">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="ТипСобытия" ColumnName="ТипСобытия" />
+          <ScalarProperty Name="ДатаСобытия" ColumnName="ДатаСобытия" />
+          <ScalarProperty Name="Подробности" ColumnName="Подробности" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Postavki">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Postavki">
+        <MappingFragment StoreEntitySet="Postavki">
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+          <ScalarProperty Name="ПоставщикID" ColumnName="ПоставщикID" />
+          <ScalarProperty Name="ДатаПокупки" ColumnName="ДатаПокупки" />
+          <ScalarProperty Name="ОбщаяСтоимость" ColumnName="ОбщаяСтоимость" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Postavshiki">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Postavshiki">
+        <MappingFragment StoreEntitySet="Postavshiki">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="НазваниеКомпании" ColumnName="НазваниеКомпании" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Город" ColumnName="Город" />
+          <ScalarProperty Name="ПочтовыйИндекс" ColumnName="ПочтовыйИндекс" />
+          <ScalarProperty Name="НомерТелефона" ColumnName="НомерТелефона" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Posts">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+          <ScalarProperty Name="Должность" ColumnName="Должность" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalePosition">
+      <EntityTypeMapping TypeName="dataBaseP8Model.SalePosition">
+        <MappingFragment StoreEntitySet="SalePosition">
+          <ScalarProperty Name="SaleDetailID" ColumnName="SaleDetailID" />
+          <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Количество" ColumnName="Количество" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Sales">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+          <ScalarProperty Name="СотрудникID" ColumnName="СотрудникID" />
+          <ScalarProperty Name="КлиентID" ColumnName="КлиентID" />
+          <ScalarProperty Name="ДатаПродажи" ColumnName="ДатаПродажи" />
+          <ScalarProperty Name="ОбщаяСтоимость" ColumnName="ОбщаяСтоимость" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sklad">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Sklad">
+        <MappingFragment StoreEntitySet="Sklad">
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="КоличествоНаСкладе" ColumnName="КоличествоНаСкладе" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staff">
+      <EntityTypeMapping TypeName="dataBaseP8Model.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="НазваниеПродукта" ColumnName="НазваниеПродукта" />
+          <ScalarProperty Name="ТипПродукта" ColumnName="ТипПродукта" />
+          <ScalarProperty Name="Производитель" ColumnName="Производитель" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+          <ScalarProperty Name="КоличествоВНаличии" ColumnName="КоличествоВНаличии" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

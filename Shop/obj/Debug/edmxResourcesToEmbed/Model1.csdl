@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dataBaseP8Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BuyList">
+    <Key>
+      <PropertyRef Name="PurchaseDetailID" />
+    </Key>
+    <Property Name="PurchaseDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Количество" Type="Int32" />
+    <Property Name="Цена" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK__BuyList__Product__60A75C0F" FromRole="BuyList" ToRole="Staff" />
+    <NavigationProperty Name="Postavki" Relationship="Self.FK__BuyList__Purchas__5FB337D6" FromRole="BuyList" ToRole="Postavki" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Адрес" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Город" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ПочтовыйИндекс" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="НомерТелефона" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__КлиентID__628FA481" FromRole="Clients" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Custumers">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Логин" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Пароль" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Role_ID" Type="Int32" />
+    <Property Name="Post_ID" Type="Int32" />
+    <Property Name="Зарплата" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK__Custumers__Post___66603565" FromRole="Custumers" ToRole="Posts" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__Сотрудник__619B8048" FromRole="Custumers" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Event_Manager">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ТипСобытия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаСобытия" Type="DateTime" Precision="3" />
+    <Property Name="Подробности" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Postavki">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+    </Key>
+    <Property Name="PurchaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ПоставщикID" Type="Int32" Nullable="false" />
+    <Property Name="ДатаПокупки" Type="DateTime" Precision="3" />
+    <Property Name="ОбщаяСтоимость" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="BuyList" Relationship="Self.FK__BuyList__Purchas__5FB337D6" FromRole="Postavki" ToRole="BuyList" />
+    <NavigationProperty Name="Postavshiki" Relationship="Self.FK__Postavki__Постав__5EBF139D" FromRole="Postavki" ToRole="Postavshiki" />
+  </EntityType>
+  <EntityType Name="Postavshiki">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НазваниеКомпании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Адрес" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Город" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ПочтовыйИндекс" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="НомерТелефона" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Postavki" Relationship="Self.FK__Postavki__Постав__5EBF139D" FromRole="Postavshiki" ToRole="Postavki" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="Post_ID" />
+    </Key>
+    <Property Name="Post_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Должность" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Custumers" Relationship="Self.FK__Custumers__Post___66603565" FromRole="Posts" ToRole="Custumers" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalePosition">
+    <Key>
+      <PropertyRef Name="SaleDetailID" />
+    </Key>
+    <Property Name="SaleDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Количество" Type="Int32" />
+    <Property Name="Цена" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK__SalePosit__Produ__6477ECF3" FromRole="SalePosition" ToRole="Staff" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK__SalePosit__SaleI__6383C8BA" FromRole="SalePosition" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="SaleID" />
+    </Key>
+    <Property Name="SaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="СотрудникID" Type="Int32" Nullable="false" />
+    <Property Name="КлиентID" Type="Int32" Nullable="false" />
+    <Property Name="ДатаПродажи" Type="DateTime" Precision="3" />
+    <Property Name="ОбщаяСтоимость" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__Sales__КлиентID__628FA481" FromRole="Sales" ToRole="Clients" />
+    <NavigationProperty Name="Custumers" Relationship="Self.FK__Sales__Сотрудник__619B8048" FromRole="Sales" ToRole="Custumers" />
+    <NavigationProperty Name="SalePosition" Relationship="Self.FK__SalePosit__SaleI__6383C8BA" FromRole="Sales" ToRole="SalePosition" />
+  </EntityType>
+  <EntityType Name="Sklad">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="КоличествоНаСкладе" Type="Int32" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK__Sklad__ProductID__656C112C" FromRole="Sklad" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НазваниеПродукта" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ТипПродукта" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Производитель" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Цена" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="КоличествоВНаличии" Type="Int32" />
+    <NavigationProperty Name="BuyList" Relationship="Self.FK__BuyList__Product__60A75C0F" FromRole="Staff" ToRole="BuyList" />
+    <NavigationProperty Name="SalePosition" Relationship="Self.FK__SalePosit__Produ__6477ECF3" FromRole="Staff" ToRole="SalePosition" />
+    <NavigationProperty Name="Sklad" Relationship="Self.FK__Sklad__ProductID__656C112C" FromRole="Staff" ToRole="Sklad" />
+  </EntityType>
+  <Association Name="FK__BuyList__Product__60A75C0F">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="BuyList" Type="Self.BuyList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="BuyList">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BuyList__Purchas__5FB337D6">
+    <End Role="Postavki" Type="Self.Postavki" Multiplicity="1" />
+    <End Role="BuyList" Type="Self.BuyList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postavki">
+        <PropertyRef Name="PurchaseID" />
+      </Principal>
+      <Dependent Role="BuyList">
+        <PropertyRef Name="PurchaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__КлиентID__628FA481">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="КлиентID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Custumers__Post___66603565">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="0..1" />
+    <End Role="Custumers" Type="Self.Custumers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="Post_ID" />
+      </Principal>
+      <Dependent Role="Custumers">
+        <PropertyRef Name="Post_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__Сотрудник__619B8048">
+    <End Role="Custumers" Type="Self.Custumers" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Custumers">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="СотрудникID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Postavki__Постав__5EBF139D">
+    <End Role="Postavshiki" Type="Self.Postavshiki" Multiplicity="1" />
+    <End Role="Postavki" Type="Self.Postavki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postavshiki">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Postavki">
+        <PropertyRef Name="ПоставщикID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SalePosit__Produ__6477ECF3">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="SalePosition" Type="Self.SalePosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SalePosition">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SalePosit__SaleI__6383C8BA">
+    <End Role="Sales" Type="Self.Sales" Multiplicity="1" />
+    <End Role="SalePosition" Type="Self.SalePosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="SaleID" />
+      </Principal>
+      <Dependent Role="SalePosition">
+        <PropertyRef Name="SaleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sklad__ProductID__656C112C">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Sklad">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dataBaseP8Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BuyList" EntityType="Self.BuyList" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="Custumers" EntityType="Self.Custumers" />
+    <EntitySet Name="Event_Manager" EntityType="Self.Event_Manager" />
+    <EntitySet Name="Postavki" EntityType="Self.Postavki" />
+    <EntitySet Name="Postavshiki" EntityType="Self.Postavshiki" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="SalePosition" EntityType="Self.SalePosition" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" />
+    <EntitySet Name="Sklad" EntityType="Self.Sklad" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" />
+    <AssociationSet Name="FK__BuyList__Product__60A75C0F" Association="Self.FK__BuyList__Product__60A75C0F">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="BuyList" EntitySet="BuyList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BuyList__Purchas__5FB337D6" Association="Self.FK__BuyList__Purchas__5FB337D6">
+      <End Role="Postavki" EntitySet="Postavki" />
+      <End Role="BuyList" EntitySet="BuyList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__КлиентID__628FA481" Association="Self.FK__Sales__КлиентID__628FA481">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Custumers__Post___66603565" Association="Self.FK__Custumers__Post___66603565">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Custumers" EntitySet="Custumers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__Сотрудник__619B8048" Association="Self.FK__Sales__Сотрудник__619B8048">
+      <End Role="Custumers" EntitySet="Custumers" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Postavki__Постав__5EBF139D" Association="Self.FK__Postavki__Постав__5EBF139D">
+      <End Role="Postavshiki" EntitySet="Postavshiki" />
+      <End Role="Postavki" EntitySet="Postavki" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SalePosit__Produ__6477ECF3" Association="Self.FK__SalePosit__Produ__6477ECF3">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="SalePosition" EntitySet="SalePosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SalePosit__SaleI__6383C8BA" Association="Self.FK__SalePosit__SaleI__6383C8BA">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="SalePosition" EntitySet="SalePosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sklad__ProductID__656C112C" Association="Self.FK__Sklad__ProductID__656C112C">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Sklad" EntitySet="Sklad" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

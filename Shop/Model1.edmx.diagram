@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4be6b4048d2b453192b37f0df9505498" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="dataBaseP8Model.BuyList" Width="1.5" PointX="16.625" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Clients" Width="1.5" PointX="9.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Custumers" Width="1.5" PointX="11.875" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Event_Manager" Width="1.5" PointX="14.375" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Postavki" Width="1.5" PointX="0.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Postavshiki" Width="1.5" PointX="2.625" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Posts" Width="1.5" PointX="12.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Roles" Width="1.5" PointX="0.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.SalePosition" Width="1.5" PointX="4.875" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Sales" Width="1.5" PointX="7.375" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Sklad" Width="1.5" PointX="3.125" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="dataBaseP8Model.Staff" Width="1.5" PointX="0.625" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="dataBaseP8Model.FK__BuyList__Product__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="dataBaseP8Model.FK__BuyList__Purchas__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="dataBaseP8Model.FK__Sales__КлиентID__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="dataBaseP8Model.FK__Custumers__Post___66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="dataBaseP8Model.FK__Sales__Сотрудник__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="dataBaseP8Model.FK__Postavki__Постав__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="dataBaseP8Model.FK__SalePosit__Produ__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="dataBaseP8Model.FK__SalePosit__SaleI__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="dataBaseP8Model.FK__Sklad__ProductID__656C112C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
